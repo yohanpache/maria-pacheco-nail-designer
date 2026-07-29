@@ -36,10 +36,12 @@ export const siteContent = {
 
   // ── Contato ─────────────────────────────────────────────────────
   contact: {
-    phone: "(42) 99999-9999",
-    whatsapp: "5542999999999",
+    phone: "(42) 9 9800-0654",
+    whatsapp: "5542998000654",
     instagram: "@maria_pacheco_nail",
-    instagramUrl: "https://instagram.com/",
+    instagramUrl: "https://instagram.com/maria_pacheco_nail",
+    tiktok: "@duda_mendes_pacheco",
+    tiktokUrl: "https://www.tiktok.com/@duda_mendes_pacheco",
     address: "Guarapuava, PR",
   },
 

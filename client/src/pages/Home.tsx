@@ -3,7 +3,7 @@ import { siteContent, type GalleryItem } from "@/data/siteContent";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
-import { Instagram, Phone, MapPin, Clock, MessageCircle, Menu, X } from "lucide-react";
+import { Instagram, Phone, MapPin, Clock, MessageCircle, Menu, X, Music } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────── */
 /*  Navbar                                                          */
@@ -479,6 +479,14 @@ function Footer() {
               className="hover:text-primary transition-colors"
             >
               <Instagram size={20} />
+            </a>
+            <a
+              href={siteContent.contact.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+            >
+              <Music size={20} />
             </a>
           </div>
           <p className="text-xs text-white/40 mt-4">
