@@ -10,6 +10,22 @@ import { ChevronLeft, ChevronRight, Instagram, MapPin, Menu, MessageCircle, Musi
  * tipografia editorial e interações suaves que valorizam o portfólio de unhas.
  */
 
+function BrandSeal({ className = "" }: { className?: string }) {
+  return (
+    <div
+      aria-hidden="true"
+      className={`select-none rounded-full border border-primary/35 p-1 ${className}`}
+    >
+      <div className="w-full h-full rounded-full border border-primary/20 flex flex-col items-center justify-center text-primary leading-none">
+        <span className="font-display text-2xl">MP</span>
+        <span className="mt-0.5 text-[6px] tracking-[0.16em] uppercase text-center leading-[1.1]">
+          Maria<br />Pacheco
+        </span>
+      </div>
+    </div>
+  );
+}
+
 /* ─────────────────────────────────────────────────────────────── */
 /*  Navbar                                                          */
 /* ─────────────────────────────────────────────────────────────── */
@@ -179,6 +195,8 @@ function Hero() {
         </div>
       </div>
 
+      <BrandSeal className="hidden lg:flex absolute z-10 right-[9%] bottom-14 w-24 h-24 bg-[oklch(0.98_0.008_60)]/10 backdrop-blur-sm text-[oklch(0.93_0.04_35)] border-white/45 [&>div]:border-white/20 [&_span]:text-[oklch(0.93_0.04_35)]" />
+
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
         <div className="w-[1px] h-12 bg-white/40 animate-pulse" />
@@ -194,20 +212,26 @@ function About() {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section id="sobre" className="py-24 md:py-32 bg-background">
-      <div className="container">
-        <div ref={ref} className={`max-w-3xl ${visible ? "reveal visible" : "reveal"}`}>
-          <p className="font-display italic text-primary text-lg mb-3">Sobre</p>
-          <h2 className="font-display text-4xl md:text-5xl text-foreground mb-8 leading-tight">
-            Unhas como expressão de personalidade
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            {siteContent.about}
-          </p>
-          <p className="text-lg text-muted-foreground leading-relaxed">
-            Cada cliente é única, e cada par de mãos conta uma história. Aqui você
-            encontra técnica, cuidado e arte em cada detalhe — do clássico ao ousado.
-          </p>
+    <section id="sobre" className="relative overflow-hidden py-24 md:py-36 bg-background">
+      <BrandSeal className="hidden md:flex absolute -right-8 top-14 h-32 w-32 opacity-45" />
+      <div className="container relative">
+        <div ref={ref} className={`grid md:grid-cols-12 gap-10 md:gap-16 ${visible ? "reveal visible" : "reveal"}`}>
+          <div className="md:col-span-5 lg:col-span-4">
+            <p className="font-display italic text-primary text-lg mb-4">Sobre</p>
+            <div className="w-12 h-px bg-primary/60 mb-7" />
+            <h2 className="font-display text-4xl md:text-5xl text-foreground leading-[1.05]">
+              Unhas como expressão de personalidade
+            </h2>
+          </div>
+          <div className="md:col-span-7 lg:col-span-6 lg:col-start-7 pt-1">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              {siteContent.about}
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Cada cliente é única, e cada par de mãos conta uma história. Aqui você
+              encontra técnica, cuidado e arte em cada detalhe — do clássico ao ousado.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -221,30 +245,41 @@ function Services() {
   const { ref, visible } = useScrollReveal();
 
   return (
-    <section id="servicos" className="py-24 md:py-32 bg-secondary/40">
+    <section id="servicos" className="relative overflow-hidden py-24 md:py-32 bg-secondary/40">
       <WaveDivider color="var(--background)" position="top" className="-mb-[1px]" />
-      <div className="container">
-        <div ref={ref} className={`text-center mb-16 ${visible ? "reveal visible" : "reveal"}`}>
-          <p className="font-display italic text-primary text-lg mb-3">Serviços</p>
-          <h2 className="font-display text-4xl md:text-5xl text-foreground">
+      <div className="container relative">
+        <BrandSeal className="hidden md:flex absolute right-8 top-6 h-20 w-20 opacity-50" />
+        <div ref={ref} className={`max-w-2xl mb-14 md:mb-16 ${visible ? "reveal visible" : "reveal"}`}>
+          <p className="font-display italic text-primary text-lg mb-4">Serviços</p>
+          <h2 className="font-display text-4xl md:text-5xl text-foreground leading-tight">
             O que oferecemos
           </h2>
+          <p className="mt-4 max-w-md text-muted-foreground leading-relaxed">
+            Técnica, acabamento e estilo para deixar suas mãos ainda mais especiais.
+          </p>
         </div>
 
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${
+          className={`grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-24 ${
             visible ? "reveal-stagger visible" : "reveal-stagger"
           }`}
         >
           {siteContent.services.map((service, i) => (
             <div
               key={i}
-              className="bg-card rounded-2xl p-8 border border-border/50 transition-all duration-300 hover:shadow-[0_8px_40px_rgba(0,0,0,0.06)] hover:border-primary/30 hover:-translate-y-1"
+              className="group grid grid-cols-[2.75rem_1fr] gap-4 border-t border-primary/20 py-6 transition-colors duration-300 hover:border-primary/75"
             >
-              <h3 className="font-display text-2xl text-foreground mb-3">{service.name}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                {service.description}
-              </p>
+              <span className="font-display text-xl italic text-primary/65 pt-0.5">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h3 className="font-display text-2xl text-foreground mb-2 transition-transform duration-300 group-hover:translate-x-1">
+                  {service.name}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
@@ -271,20 +306,25 @@ function Gallery() {
   };
 
   return (
-    <section id="galeria" className="py-24 md:py-32 bg-background">
+    <section id="galeria" className="relative overflow-hidden py-24 md:py-36 bg-background">
       <div className="container">
-        <div ref={ref} className={`text-center mb-12 ${visible ? "reveal visible" : "reveal"}`}>
-          <p className="font-display italic text-primary text-lg mb-3">Portfólio</p>
-          <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4">
-            Unhas em destaque
-          </h2>
-          <p className="text-muted-foreground max-w-lg mx-auto">
-            Uma apresentação dos trabalhos criados com atenção a cada detalhe.
-          </p>
+        <div ref={ref} className={`grid md:grid-cols-12 items-end gap-6 mb-12 ${visible ? "reveal visible" : "reveal"}`}>
+          <div className="md:col-span-7">
+            <p className="font-display italic text-primary text-lg mb-3">Portfólio</p>
+            <h2 className="font-display text-4xl md:text-6xl text-foreground leading-[1.02]">
+              Unhas em destaque
+            </h2>
+          </div>
+          <div className="md:col-span-4 md:col-start-9 flex items-end justify-between gap-6">
+            <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
+              Uma apresentação dos trabalhos criados com atenção a cada detalhe.
+            </p>
+            <BrandSeal className="flex shrink-0 h-20 w-20" />
+          </div>
         </div>
 
-        <div className={`max-w-5xl mx-auto ${visible ? "reveal visible" : "reveal"}`}>
-          <div className="relative overflow-hidden rounded-[2rem] bg-[oklch(0.22_0.02_50)] shadow-[0_18px_65px_rgba(76,40,44,0.18)]">
+        <div className={`max-w-6xl ml-auto ${visible ? "reveal visible" : "reveal"}`}>
+          <div className="relative overflow-hidden rounded-[2rem] bg-[oklch(0.22_0.02_50)] shadow-[0_22px_75px_rgba(76,40,44,0.2)]">
             <div className="relative aspect-[4/5] sm:aspect-[16/10]">
               <img
                 key={activeSlide.src + activeIndex}
@@ -324,7 +364,7 @@ function Gallery() {
             </button>
           </div>
 
-          <div className="mt-5 flex items-center justify-center gap-3 overflow-x-auto pb-1">
+          <div className="mt-5 flex items-center justify-end gap-3 overflow-x-auto pb-1">
             {siteContent.gallery.map((item, index) => (
               <button
                 type="button"
@@ -357,14 +397,16 @@ function Contact() {
   return (
     <section id="contato" className="py-24 md:py-32 bg-secondary/40">
       <div className="container">
-        <div ref={ref} className={`max-w-5xl mx-auto ${visible ? "reveal visible" : "reveal"}`}>
-          <div className="text-center mb-16">
-            <p className="font-display italic text-primary text-lg mb-3">Contato</p>
-            <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4">
-              Vamos agendar?
-            </h2>
-            <p className="text-muted-foreground max-w-md mx-auto">
-              Entre em contato para reservar seu horário. Será um prazer cuidar das suas unhas.
+        <div ref={ref} className={`max-w-6xl mx-auto ${visible ? "reveal visible" : "reveal"}`}>
+          <div className="grid md:grid-cols-12 items-end gap-6 mb-14">
+            <div className="md:col-span-7">
+              <p className="font-display italic text-primary text-lg mb-3">Contato</p>
+              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4">
+                Vamos agendar?
+              </h2>
+            </div>
+            <p className="md:col-span-4 md:col-start-9 text-muted-foreground text-sm leading-relaxed max-w-xs">
+              Escolha a sua rede preferida ou fale pelo WhatsApp para dar vida ao seu próximo design.
             </p>
           </div>
 
@@ -427,7 +469,8 @@ function Contact() {
               </div>
             </div>
 
-            <div className="bg-[oklch(0.22_0.02_50)] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[260px]">
+            <div className="relative overflow-hidden bg-[oklch(0.22_0.02_50)] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[260px]">
+              <BrandSeal className="absolute -right-7 -top-7 h-28 w-28 opacity-40 [&_span]:text-[oklch(0.83_0.06_30)] [&>div]:border-[oklch(0.83_0.06_30)]/30" />
               <div>
                 <p className="font-display italic text-[oklch(0.83_0.06_30)] text-lg mb-3">Seu momento de cuidado</p>
                 <h3 className="font-display text-3xl text-white leading-tight mb-4">Pronta para transformar suas unhas?</h3>

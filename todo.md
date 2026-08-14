@@ -7,4 +7,4 @@
 - [x] Atualizar WhatsApp e endereço.
 - [x] Adicionar links funcionais para Instagram e TikTok.
 - [x] Criar carrossel de apresentação dos trabalhos de unhas.
-- [ ] Validar a versão atualizada em desktop e celular.
+- [x] Validar a versão atualizada em desktop e celular.
