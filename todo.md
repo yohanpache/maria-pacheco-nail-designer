@@ -22,3 +22,9 @@
 - [x] Remover o cartão rosé e todos os fundos da imagem de logo aplicada.
 - [x] Substituir a marca no cabeçalho, hero e rodapé.
 - [x] Validar a nova composição em desktop e celular.
+
+## Rodapé
+
+- [x] Exibir o coração acima do nome no rodapé.
+- [x] Usar a assinatura manuscrita da logo no nome exibido no rodapé.
+- [x] Validar a composição atualizada do rodapé.

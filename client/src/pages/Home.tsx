@@ -484,9 +484,12 @@ function Footer() {
     <footer className="bg-[oklch(0.22_0.045_10)] text-white/70 py-12">
       <div className="container">
         <div className="flex flex-col items-center gap-6">
-          <p className="font-display text-2xl text-white/90">Maria Pacheco</p>
-          <p className="text-[10px] tracking-[0.22em] uppercase text-white/60">Nail Designer</p>
-          <p className="text-sm tracking-[0.12em] uppercase text-white/70">{siteContent.city} · {siteContent.profession}</p>
+          <img
+            src={siteContent.logoImage}
+            alt="Maria Pacheco Nail Designer"
+            className="w-44 h-auto object-contain brightness-0 invert opacity-90"
+          />
+          <p className="text-sm tracking-[0.12em] uppercase text-white/70">{siteContent.city}</p>
           <div className="flex gap-6 mt-2">
             <a
               href={`https://wa.me/${siteContent.contact.whatsapp}`}
