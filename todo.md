@@ -53,3 +53,9 @@
 - [x] Remover o bloco “Seu próximo design começa aqui” e seu texto complementar.
 - [x] Manter somente as caixas de WhatsApp, redes sociais e endereço.
 - [x] Validar a seção de contato simplificada.
+
+## Ajuste da caixa de WhatsApp
+
+- [x] Substituir o ícone de conversa pelo ícone do WhatsApp.
+- [x] Alterar o texto para “Agende seu horário”.
+- [x] Validar a caixa de WhatsApp atualizada.

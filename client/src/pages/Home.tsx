@@ -397,11 +397,13 @@ function Contact() {
                 className="flex items-center gap-4 p-5 bg-card rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
               >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <MessageCircle size={20} className="text-primary" />
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="w-6 h-6 text-primary">
+                    <path d="M12.04 2C6.58 2 2.15 6.43 2.15 11.89c0 1.75.46 3.39 1.26 4.82L2 22l5.38-1.42a9.84 9.84 0 0 0 4.66 1.17c5.46 0 9.89-4.43 9.89-9.89S17.5 2 12.04 2Zm0 18.08c-1.49 0-2.89-.4-4.1-1.08l-.29-.17-3.19.84.85-3.11-.19-.31a8.13 8.13 0 0 1-1.24-4.36c0-4.5 3.66-8.16 8.16-8.16s8.16 3.66 8.16 8.16-3.66 8.19-8.16 8.19Zm4.48-6.1c-.25-.13-1.45-.72-1.68-.8-.23-.08-.4-.13-.57.13-.17.25-.64.8-.79.97-.14.17-.29.19-.54.06-.25-.13-1.05-.39-2-1.23-.74-.66-1.24-1.48-1.39-1.73-.14-.25-.02-.38.11-.5.11-.11.25-.3.37-.45.12-.14.16-.25.24-.42.08-.17.04-.32-.02-.45-.06-.13-.56-1.36-.77-1.86-.2-.49-.41-.43-.56-.43-.15-.01-.32-.01-.49-.01-.17 0-.44.06-.68.31-.23.25-.89.87-.89 2.13s.91 2.47 1.04 2.65c.13.17 1.8 2.75 4.36 3.86.61.26 1.08.42 1.45.54.61.19 1.16.16 1.6.1.49-.07 1.45-.59 1.66-1.17.21-.58.21-1.07.15-1.17-.06-.1-.23-.16-.48-.29Z" />
+                  </svg>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground tracking-widest uppercase">WhatsApp</p>
-                  <p className="text-foreground font-medium">Falar no WhatsApp</p>
+                  <p className="text-foreground font-medium">Agende seu horário</p>
                 </div>
               </a>
 
