@@ -22,7 +22,6 @@ export interface GalleryItem {
 export interface ServiceItem {
   name: string;
   description: string;
-  price?: string;
 }
 
 export const siteContent = {
@@ -32,65 +31,59 @@ export const siteContent = {
   city: "Guarapuava",
   tagline: "Cada unha é uma tela em branco — sua personalidade é a arte.",
   about:
-    "Com anos de experiência e paixão por nail art, Maria Pacheco transforma unhas em verdadeiras obras de arte. Especializada em técnicas modernas e produtos de alta qualidade, oferece um atendimento personalizado em um ambiente acolhedor no coração de Guarapuava.",
+    "Com paixão por nail art, Maria Pacheco transforma unhas em verdadeiras obras de arte. Especializada em técnicas modernas e produtos de alta qualidade, oferece um atendimento personalizado em um ambiente acolhedor no coração de Guarapuava.",
 
   // ── Contato ─────────────────────────────────────────────────────
   contact: {
-    phone: "(42) 99999-9999",
-    whatsapp: "5542999999999",
+    whatsapp: "5542998000654",
     instagram: "@maria_pacheco_nail",
-    instagramUrl: "https://instagram.com/",
-    address: "Guarapuava, PR",
+    instagramUrl: "https://www.instagram.com/maria_pacheco_nail/",
+    tiktok: "@maria_pacheco_nail",
+    tiktokUrl: "https://www.tiktok.com/@maria_pacheco_nail",
+    address: "Vila Bela, Guarapuava — Paraná",
   },
-
-  // ── Horários de atendimento ────────────────────────────────────
-  schedule: [
-    { day: "Segunda", hours: "09h00 — 18h00" },
-    { day: "Terça", hours: "09h00 — 18h00" },
-    { day: "Quarta", hours: "09h00 — 18h00" },
-    { day: "Quinta", hours: "09h00 — 18h00" },
-    { day: "Sexta", hours: "09h00 — 19h00" },
-    { day: "Sábado", hours: "08h00 — 16h00" },
-    { day: "Domingo", hours: "Fechado" },
-  ],
 
   // ── Serviços oferecidos ────────────────────────────────────────
   services: [
     {
       name: "Esmaltação em Gel",
       description:
-        "Durabilidade e brilho incomparáveis. Mais de 3 semanas de perfeição sem deslizar.",
-      price: "A partir de R$ 50",
+        "Brilho intenso, acabamento elegante e cor impecável para valorizar suas unhas.",
+    },
+    {
+      name: "Alongamento em Molde F1 com Gel",
+      description:
+        "Estrutura leve, resistente e personalizada no formato que combina com você.",
+    },
+    {
+      name: "Alongamento em Molde F1 com Pó Acrílico",
+      description:
+        "Alongamento com acabamento preciso e alta durabilidade para unhas ainda mais bonitas.",
+    },
+    {
+      name: "Manutenção do Alongamento",
+      description:
+        "Cuidado periódico para renovar a estrutura e manter suas unhas saudáveis e impecáveis.",
+    },
+    {
+      name: "Blindagem",
+      description:
+        "Camada de proteção para fortalecer as unhas naturais sem perder a leveza e a elegância.",
+    },
+    {
+      name: "Banho em Gel",
+      description:
+        "Reforço com gel para unhas naturais, proporcionando resistência e um acabamento sofisticado.",
+    },
+    {
+      name: "Remoção",
+      description:
+        "Remoção cuidadosa de esmaltação, gel ou alongamento, preservando a saúde das unhas naturais.",
     },
     {
       name: "Nail Art Personalizada",
       description:
-        "Designs exclusivos criados sob medida — florais, geométricos, francesinha moderna e muito mais.",
-      price: "A partir de R$ 80",
-    },
-    {
-      name: "Alongamento de Unhas",
-      description:
-        "Estrutura perfeita em fibra de vidro, acrigel ou polygel. Comprimento e formato à sua escolha.",
-      price: "A partir de R$ 120",
-    },
-    {
-      name: "Manicure Russa",
-      description:
-        "Técnica premium de cutícula — limpeza profunda e acabamento impecável para um visual duradouro.",
-      price: "A partir de R$ 45",
-    },
-    {
-      name: "Spa das Mãos",
-      description:
-        "Hidratação intensa, esfoliação e massagem relaxante. Suas mãos merecem esse carinho.",
-      price: "A partir de R$ 60",
-    },
-    {
-      name: "Remoção de Esmalte",
-      description:
-        "Remoção segura e cuidadosa de esmalte em gel ou alongamento, preservando a saúde natural das unhas.",
-      price: "A partir de R$ 25",
+        "Designs criados para expressar seu estilo — do delicado ao marcante, sempre com atenção aos detalhes.",
     },
   ] as ServiceItem[],
 

@@ -1,9 +1,14 @@
-import { useState, useMemo } from "react";
-import { siteContent, type GalleryItem } from "@/data/siteContent";
+import { useEffect, useState } from "react";
+import { siteContent } from "@/data/siteContent";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import WaveDivider from "@/components/WaveDivider";
 import { Button } from "@/components/ui/button";
-import { Instagram, Phone, MapPin, Clock, MessageCircle, Menu, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Instagram, MapPin, Menu, MessageCircle, Music2, X } from "lucide-react";
+
+/**
+ * Estilo da página: minimalismo rosé sofisticado, fotografia como protagonista,
+ * tipografia editorial e interações suaves que valorizam o portfólio de unhas.
+ */
 
 /* ─────────────────────────────────────────────────────────────── */
 /*  Navbar                                                          */
@@ -12,9 +17,12 @@ function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  if (typeof window !== "undefined") {
-    window.addEventListener("scroll", () => setScrolled(window.scrollY > 40), { passive: true });
-  }
+  useEffect(() => {
+    const updateScrollState = () => setScrolled(window.scrollY > 40);
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, []);
 
   const links = [
     { label: "Início", href: "#inicio" },
@@ -237,9 +245,6 @@ function Services() {
               <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {service.description}
               </p>
-              {service.price && (
-                <p className="text-primary font-medium text-sm tracking-wide">{service.price}</p>
-              )}
             </div>
           ))}
         </div>
@@ -249,21 +254,21 @@ function Services() {
 }
 
 /* ─────────────────────────────────────────────────────────────── */
-/*  Gallery                                                          */
+/*  Presentation carousel                                             */
 /* ─────────────────────────────────────────────────────────────── */
 function Gallery() {
   const { ref, visible } = useScrollReveal();
-  const [filter, setFilter] = useState<string>("Todos");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const totalSlides = siteContent.gallery.length;
+  const activeSlide = siteContent.gallery[activeIndex];
 
-  const categories = useMemo(() => {
-    const cats = new Set(siteContent.gallery.map((g) => g.category));
-    return ["Todos", ...Array.from(cats)];
-  }, []);
+  const showPrevious = () => {
+    setActiveIndex((current) => (current - 1 + totalSlides) % totalSlides);
+  };
 
-  const filteredItems = useMemo(() => {
-    if (filter === "Todos") return siteContent.gallery;
-    return siteContent.gallery.filter((g) => g.category === filter);
-  }, [filter]);
+  const showNext = () => {
+    setActiveIndex((current) => (current + 1) % totalSlides);
+  };
 
   return (
     <section id="galeria" className="py-24 md:py-32 bg-background">
@@ -271,55 +276,72 @@ function Gallery() {
         <div ref={ref} className={`text-center mb-12 ${visible ? "reveal visible" : "reveal"}`}>
           <p className="font-display italic text-primary text-lg mb-3">Portfólio</p>
           <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4">
-            Galeria de Trabalhos
+            Unhas em destaque
           </h2>
           <p className="text-muted-foreground max-w-lg mx-auto">
-            Uma seleção dos designs criados com dedicação. Toque em cada foto para ver os detalhes.
+            Uma apresentação dos trabalhos criados com atenção a cada detalhe.
           </p>
         </div>
 
-        {/* Filter pills */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-5 py-2 rounded-full text-sm tracking-wide transition-all duration-200 ${
-                filter === cat
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-accent"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-
-        {/* Masonry grid */}
-        <div
-          className={`columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:_balance] ${
-            visible ? "reveal-stagger visible" : "reveal-stagger"
-          }`}
-        >
-          {filteredItems.map((item: GalleryItem, i) => (
-            <div
-              key={`${item.src}-${i}`}
-              className="mb-4 break-inside-avoid group relative overflow-hidden rounded-2xl"
-            >
+        <div className={`max-w-5xl mx-auto ${visible ? "reveal visible" : "reveal"}`}>
+          <div className="relative overflow-hidden rounded-[2rem] bg-[oklch(0.22_0.02_50)] shadow-[0_18px_65px_rgba(76,40,44,0.18)]">
+            <div className="relative aspect-[4/5] sm:aspect-[16/10]">
               <img
-                src={item.src}
-                alt={item.title}
-                className="w-full h-auto object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                key={activeSlide.src + activeIndex}
+                src={activeSlide.src}
+                alt={activeSlide.title}
+                className="w-full h-full object-cover animate-in fade-in duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.18_0.02_50)]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 translate-y-4 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <p className="text-white/70 text-xs tracking-widest uppercase mb-1">
-                  {item.category}
-                </p>
-                <h3 className="font-display text-xl text-white">{item.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.17_0.02_50)]/85 via-transparent to-transparent" />
+              <div className="absolute left-6 right-6 bottom-6 sm:left-10 sm:right-10 sm:bottom-9 flex items-end justify-between gap-6">
+                <div>
+                  <p className="text-white/65 text-xs tracking-[0.18em] uppercase mb-2">
+                    {activeSlide.category}
+                  </p>
+                  <h3 className="font-display text-3xl sm:text-4xl text-white">{activeSlide.title}</h3>
+                </div>
+                <span className="text-sm text-white/75 whitespace-nowrap">
+                  {String(activeIndex + 1).padStart(2, "0")} / {String(totalSlides).padStart(2, "0")}
+                </span>
               </div>
             </div>
-          ))}
+
+            <button
+              type="button"
+              onClick={showPrevious}
+              aria-label="Mostrar trabalho anterior"
+              className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 text-foreground flex items-center justify-center transition-transform duration-200 hover:scale-105 active:scale-95"
+            >
+              <ChevronLeft size={21} />
+            </button>
+            <button
+              type="button"
+              onClick={showNext}
+              aria-label="Mostrar próximo trabalho"
+              className="absolute right-4 sm:right-6 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 text-foreground flex items-center justify-center transition-transform duration-200 hover:scale-105 active:scale-95"
+            >
+              <ChevronRight size={21} />
+            </button>
+          </div>
+
+          <div className="mt-5 flex items-center justify-center gap-3 overflow-x-auto pb-1">
+            {siteContent.gallery.map((item, index) => (
+              <button
+                type="button"
+                key={`${item.src}-${index}`}
+                aria-label={`Exibir ${item.title}`}
+                aria-current={index === activeIndex}
+                onClick={() => setActiveIndex(index)}
+                className={`relative h-16 w-12 sm:h-20 sm:w-16 shrink-0 overflow-hidden rounded-xl transition-all duration-300 ${
+                  index === activeIndex
+                    ? "ring-2 ring-primary ring-offset-2 ring-offset-background opacity-100"
+                    : "opacity-55 hover:opacity-90"
+                }`}
+              >
+                <img src={item.src} alt="" className="w-full h-full object-cover" />
+              </button>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -327,7 +349,7 @@ function Gallery() {
 }
 
 /* ─────────────────────────────────────────────────────────────── */
-/*  Contact + Schedule                                              */
+/*  Contact                                                         */
 /* ─────────────────────────────────────────────────────────────── */
 function Contact() {
   const { ref, visible } = useScrollReveal();
@@ -346,9 +368,9 @@ function Contact() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8">
             {/* Contact info */}
-            <div className="space-y-6">
+            <div className="grid sm:grid-cols-2 gap-5">
               <a
                 href={`https://wa.me/${siteContent.contact.whatsapp}`}
                 target="_blank"
@@ -360,7 +382,7 @@ function Contact() {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground tracking-widest uppercase">WhatsApp</p>
-                  <p className="text-foreground font-medium">{siteContent.contact.phone}</p>
+                  <p className="text-foreground font-medium">Falar no WhatsApp</p>
                 </div>
               </a>
 
@@ -379,6 +401,21 @@ function Contact() {
                 </div>
               </a>
 
+              <a
+                href={siteContent.contact.tiktokUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-5 bg-card rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
+              >
+                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
+                  <Music2 size={20} className="text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground tracking-widest uppercase">TikTok</p>
+                  <p className="text-foreground font-medium">{siteContent.contact.tiktok}</p>
+                </div>
+              </a>
+
               <div className="flex items-center gap-4 p-5 bg-card rounded-2xl border border-border/50">
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <MapPin size={20} className="text-primary" />
@@ -388,45 +425,15 @@ function Contact() {
                   <p className="text-foreground font-medium">{siteContent.contact.address}</p>
                 </div>
               </div>
-
-              <a
-                href={`tel:${siteContent.contact.phone.replace(/\D/g, "")}`}
-                className="flex items-center gap-4 p-5 bg-card rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
-              >
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Phone size={20} className="text-primary" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground tracking-widest uppercase">Telefone</p>
-                  <p className="text-foreground font-medium">{siteContent.contact.phone}</p>
-                </div>
-              </a>
             </div>
 
-            {/* Schedule */}
-            <div className="bg-card rounded-2xl border border-border/50 p-8">
-              <div className="flex items-center gap-3 mb-6">
-                <Clock size={20} className="text-primary" />
-                <h3 className="font-display text-2xl text-foreground">Horários</h3>
-              </div>
-              <div className="space-y-3">
-                {siteContent.schedule.map((s, i) => (
-                  <div
-                    key={i}
-                    className="flex justify-between items-center py-2 border-b border-border/30 last:border-0"
-                  >
-                    <span className="text-foreground/80 text-sm">{s.day}</span>
-                    <span
-                      className={`text-sm ${
-                        s.hours === "Fechado"
-                          ? "text-muted-foreground"
-                          : "text-foreground font-medium"
-                      }`}
-                    >
-                      {s.hours}
-                    </span>
-                  </div>
-                ))}
+            <div className="bg-[oklch(0.22_0.02_50)] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[260px]">
+              <div>
+                <p className="font-display italic text-[oklch(0.83_0.06_30)] text-lg mb-3">Seu momento de cuidado</p>
+                <h3 className="font-display text-3xl text-white leading-tight mb-4">Pronta para transformar suas unhas?</h3>
+                <p className="text-white/65 leading-relaxed text-sm">
+                  Para informações, disponibilidade e agendamentos, fale diretamente pelo WhatsApp.
+                </p>
               </div>
               <a
                 href={`https://wa.me/${siteContent.contact.whatsapp}`}
@@ -479,6 +486,15 @@ function Footer() {
               className="hover:text-primary transition-colors"
             >
               <Instagram size={20} />
+            </a>
+            <a
+              href={siteContent.contact.tiktokUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary transition-colors"
+              aria-label="TikTok de Maria Pacheco Nail"
+            >
+              <Music2 size={20} />
             </a>
           </div>
           <p className="text-xs text-white/40 mt-4">

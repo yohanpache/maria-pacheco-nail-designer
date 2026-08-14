@@ -62,3 +62,10 @@
 **Wordmark & Logo**: Monograma "MP" em serif elegante dentro de um círculo delicado, com acento rosé. Simples, memorável, funciona como favicon e logo de header.
 
 **Signature Brand Color**: Rosé sofisticado (#D4A5A5) — inconfundivelmente a marca de Maria Pacheco.
+
+## Style Decisions
+
+- Cada seção principal usa assimetria editorial por meio de alinhamentos deslocados, blocos em colunas e detalhes sobrepostos; headings centralizados são reservados apenas a situações pontuais.
+- O portfólio é o ápice visual da página: o carrossel recebe maior escala, composição assimétrica e navegação por miniaturas para valorizar as fotografias.
+- O selo circular MP/Maria Pacheco e os divisores de curvas rosé aparecem de forma sutil e recorrente como assinatura visual da marca.
+- A apresentação dos serviços utiliza uma estrutura de menu editorial com numeração e linhas delicadas, em vez de cards genéricos.
