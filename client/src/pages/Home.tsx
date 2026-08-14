@@ -40,14 +40,16 @@ function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="container flex items-center justify-between py-4">
+      <nav className="container flex items-center justify-between py-3">
         {/* Logo */}
         <a href="#inicio" className="flex items-center gap-3 group">
           <img
             src={siteContent.logoImage}
             alt="Maria Pacheco Nail Designer"
-            className={`h-14 w-36 object-contain opacity-95 transition-transform duration-300 group-hover:scale-[1.03] ${
-              scrolled ? "" : "brightness-0 invert drop-shadow-sm"
+            className={`h-16 md:h-20 w-36 md:w-44 object-contain opacity-100 transition-transform duration-300 group-hover:scale-[1.03] ${
+              scrolled
+                ? "drop-shadow-[0_2px_5px_rgba(91,57,68,0.10)]"
+                : "brightness-0 invert drop-shadow-[0_3px_12px_rgba(37,20,25,0.45)]"
             }`}
           />
         </a>

@@ -28,3 +28,9 @@
 - [x] Exibir o coração acima do nome no rodapé.
 - [x] Usar a assinatura manuscrita da logo no nome exibido no rodapé.
 - [x] Validar a composição atualizada do rodapé.
+
+## Assinatura no topo
+
+- [x] Aplicar coração, assinatura manuscrita e subtítulo no topo da página.
+- [x] Ajustar contraste e dimensão para leitura sobre a imagem principal.
+- [x] Validar a assinatura no topo em desktop e celular.
