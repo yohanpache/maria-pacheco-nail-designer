@@ -40,3 +40,16 @@
 - [x] Posicionar a assinatura acima dos links de navegação.
 - [x] Ampliar a logo preservando legibilidade e equilíbrio visual.
 - [x] Validar o novo cabeçalho em desktop e celular.
+
+## Manual de manutenção
+
+- [x] Mapear arquivos e fluxos reais do projeto para o manual.
+- [x] Escrever tutoriais de manutenção para textos, fotos, links, contato e identidade visual.
+- [x] Incluir orientações de segurança, testes, publicação e solução de problemas.
+- [x] Revisar e entregar o manual em arquivo Markdown.
+
+## Simplificação do contato
+
+- [x] Remover o bloco “Seu próximo design começa aqui” e seu texto complementar.
+- [x] Manter somente as caixas de WhatsApp, redes sociais e endereço.
+- [x] Validar a seção de contato simplificada.

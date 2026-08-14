@@ -386,22 +386,10 @@ function Contact() {
   return (
     <section id="contato" className="py-24 md:py-32 bg-secondary/40">
       <div className="container">
-        <div ref={ref} className={`max-w-6xl mx-auto ${visible ? "reveal visible" : "reveal"}`}>
-          <div className="grid md:grid-cols-12 items-end gap-6 mb-14">
-            <div className="md:col-span-7">
-              <p className="font-display italic text-primary text-lg mb-3">Contato</p>
-              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4">
-                Seu próximo design começa aqui
-              </h2>
-            </div>
-            <p className="md:col-span-4 md:col-start-9 text-muted-foreground text-sm leading-relaxed max-w-xs">
-              Escolha a sua rede preferida ou fale pelo WhatsApp para dar vida ao seu próximo design.
-            </p>
-          </div>
+        <div ref={ref} className={`max-w-3xl mx-auto ${visible ? "reveal visible" : "reveal"}`}>
+          <p className="font-display italic text-primary text-lg mb-6">Contato</p>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8">
-            {/* Contact info */}
-            <div className="grid sm:grid-cols-2 gap-5">
+          <div className="grid sm:grid-cols-2 gap-5">
               <a
                 href={`https://wa.me/${siteContent.contact.whatsapp}`}
                 target="_blank"
@@ -456,27 +444,6 @@ function Contact() {
                   <p className="text-foreground font-medium">{siteContent.contact.address}</p>
                 </div>
               </div>
-            </div>
-
-            <div className="relative overflow-hidden bg-[oklch(0.27_0.05_10)] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[260px]">
-              <div>
-                <p className="font-display italic text-[oklch(0.83_0.06_30)] text-lg mb-3">Seu momento de cuidado</p>
-                <h3 className="font-display text-3xl text-white leading-tight mb-4">Pronta para transformar suas unhas?</h3>
-                <p className="text-white/65 leading-relaxed text-sm">
-                  Para informações, disponibilidade e agendamentos, fale diretamente pelo WhatsApp.
-                </p>
-              </div>
-              <a
-                href={`https://wa.me/${siteContent.contact.whatsapp}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 block"
-              >
-                <Button className="w-full rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity">
-                  Conversar sobre meu design
-                </Button>
-              </a>
-            </div>
           </div>
         </div>
       </div>
