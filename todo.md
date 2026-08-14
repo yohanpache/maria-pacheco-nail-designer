@@ -8,3 +8,10 @@
 - [x] Adicionar links funcionais para Instagram e TikTok.
 - [x] Criar carrossel de apresentação dos trabalhos de unhas.
 - [x] Validar a versão atualizada em desktop e celular.
+
+## Atualização de identidade visual
+
+- [x] Preparar a logo enviada para aplicação no cabeçalho, hero e rodapé.
+- [x] Aplicar a paleta rosé clara inspirada na referência fornecida.
+- [x] Ajustar os elementos de marca para harmonizarem com a nova logo.
+- [x] Validar a nova identidade em desktop e celular.

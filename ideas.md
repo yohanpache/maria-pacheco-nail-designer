@@ -69,3 +69,6 @@
 - O portfólio é o ápice visual da página: o carrossel recebe maior escala, composição assimétrica e navegação por miniaturas para valorizar as fotografias.
 - O selo circular MP/Maria Pacheco e os divisores de curvas rosé aparecem de forma sutil e recorrente como assinatura visual da marca.
 - A apresentação dos serviços utiliza uma estrutura de menu editorial com numeração e linhas delicadas, em vez de cards genéricos.
+- O monograma “MP” é a assinatura recorrente da marca; o coração presente na logo é reservado ao arquivo de logo oficial e não é repetido como motivo principal.
+- Creme quente e nude compõem a base da interface, enquanto o rosé #D4A5A5 aparece como acento editorial em linhas, detalhes e superfícies secundárias.
+- A linguagem de conversão valoriza o cuidado autoral, usando chamadas como “Criar meu design” e “Seu próximo design começa aqui”.

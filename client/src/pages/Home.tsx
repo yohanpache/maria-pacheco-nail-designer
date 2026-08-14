@@ -17,10 +17,8 @@ function BrandSeal({ className = "" }: { className?: string }) {
       className={`select-none rounded-full border border-primary/35 p-1 ${className}`}
     >
       <div className="w-full h-full rounded-full border border-primary/20 flex flex-col items-center justify-center text-primary leading-none">
-        <span className="font-display text-2xl">MP</span>
-        <span className="mt-0.5 text-[6px] tracking-[0.16em] uppercase text-center leading-[1.1]">
-          Maria<br />Pacheco
-        </span>
+        <span className="font-display text-2xl tracking-[-0.08em]">MP</span>
+        <span className="mt-1 text-[5px] tracking-[0.18em] uppercase">Nail Art</span>
       </div>
     </div>
   );
@@ -52,7 +50,7 @@ function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[oklch(0.98_0.008_60)]/90 backdrop-blur-xl shadow-[0_1px_20px_rgba(0,0,0,0.06)]"
+          ? "bg-background/90 backdrop-blur-xl shadow-[0_1px_20px_rgba(83,53,63,0.10)]"
           : "bg-transparent"
       }`}
     >
@@ -61,15 +59,9 @@ function Navbar() {
         <a href="#inicio" className="flex items-center gap-3 group">
           <img
             src={siteContent.logoImage}
-            alt="MP"
-            className="w-10 h-10 rounded-full object-cover transition-transform duration-300 group-hover:scale-105"
+            alt="Maria Pacheco Nail Designer"
+            className="h-11 w-32 rounded-md object-contain bg-[oklch(0.94_0.025_10)] p-1 transition-transform duration-300 group-hover:scale-[1.03]"
           />
-          <span
-            className="font-display text-xl tracking-wide text-foreground"
-            style={{ fontWeight: 500 }}
-          >
-            Maria Pacheco
-          </span>
         </a>
 
         {/* Desktop links */}
@@ -151,7 +143,7 @@ function Hero() {
           alt="Nail design"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.18_0.02_50)]/70 via-[oklch(0.18_0.02_50)]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.27_0.05_10)]/78 via-[oklch(0.27_0.05_10)]/36 to-transparent" />
       </div>
 
       {/* Content */}
@@ -179,7 +171,7 @@ function Hero() {
                 size="lg"
                 className="rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity text-base"
               >
-                Agendar Horário
+                Criar meu design
               </Button>
             </a>
             <a href="#galeria">
@@ -195,7 +187,13 @@ function Hero() {
         </div>
       </div>
 
-      <BrandSeal className="hidden lg:flex absolute z-10 right-[9%] bottom-14 w-24 h-24 bg-[oklch(0.98_0.008_60)]/10 backdrop-blur-sm text-[oklch(0.93_0.04_35)] border-white/45 [&>div]:border-white/20 [&_span]:text-[oklch(0.93_0.04_35)]" />
+      <div className="hidden lg:block absolute z-10 right-[8%] bottom-14 w-56 rounded-[1.35rem] bg-[oklch(0.94_0.025_10)]/92 p-3 shadow-[0_18px_45px_rgba(72,37,48,0.18)]">
+        <img
+          src={siteContent.logoImage}
+          alt="Logo Maria Pacheco Nail Designer"
+          className="w-full h-auto rounded-lg"
+        />
+      </div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
@@ -252,7 +250,7 @@ function Services() {
         <div ref={ref} className={`max-w-2xl mb-14 md:mb-16 ${visible ? "reveal visible" : "reveal"}`}>
           <p className="font-display italic text-primary text-lg mb-4">Serviços</p>
           <h2 className="font-display text-4xl md:text-5xl text-foreground leading-tight">
-            O que oferecemos
+            Técnica para a sua assinatura pessoal
           </h2>
           <p className="mt-4 max-w-md text-muted-foreground leading-relaxed">
             Técnica, acabamento e estilo para deixar suas mãos ainda mais especiais.
@@ -402,7 +400,7 @@ function Contact() {
             <div className="md:col-span-7">
               <p className="font-display italic text-primary text-lg mb-3">Contato</p>
               <h2 className="font-display text-4xl md:text-5xl text-foreground mb-4">
-                Vamos agendar?
+                Seu próximo design começa aqui
               </h2>
             </div>
             <p className="md:col-span-4 md:col-start-9 text-muted-foreground text-sm leading-relaxed max-w-xs">
@@ -469,7 +467,7 @@ function Contact() {
               </div>
             </div>
 
-            <div className="relative overflow-hidden bg-[oklch(0.22_0.02_50)] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[260px]">
+            <div className="relative overflow-hidden bg-[oklch(0.27_0.05_10)] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[260px]">
               <BrandSeal className="absolute -right-7 -top-7 h-28 w-28 opacity-40 [&_span]:text-[oklch(0.83_0.06_30)] [&>div]:border-[oklch(0.83_0.06_30)]/30" />
               <div>
                 <p className="font-display italic text-[oklch(0.83_0.06_30)] text-lg mb-3">Seu momento de cuidado</p>
@@ -485,7 +483,7 @@ function Contact() {
                 className="mt-6 block"
               >
                 <Button className="w-full rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity">
-                  Agendar via WhatsApp
+                  Conversar sobre meu design
                 </Button>
               </a>
             </div>
@@ -501,18 +499,15 @@ function Contact() {
 /* ─────────────────────────────────────────────────────────────── */
 function Footer() {
   return (
-    <footer className="bg-[oklch(0.18_0.02_50)] text-white/70 py-12">
+    <footer className="bg-[oklch(0.22_0.045_10)] text-white/70 py-12">
       <div className="container">
         <div className="flex flex-col items-center gap-6">
           <img
             src={siteContent.logoImage}
-            alt="MP"
-            className="w-12 h-12 rounded-full object-cover"
+            alt="Maria Pacheco Nail Designer"
+            className="w-48 h-auto rounded-md object-contain bg-[oklch(0.94_0.025_10)] p-2"
           />
-          <p className="font-display text-2xl text-white">{siteContent.name}</p>
-          <p className="text-sm tracking-wide">
-            {siteContent.profession} · {siteContent.city}
-          </p>
+          <p className="text-sm tracking-[0.12em] uppercase text-white/70">{siteContent.city} · {siteContent.profession}</p>
           <div className="flex gap-6 mt-2">
             <a
               href={`https://wa.me/${siteContent.contact.whatsapp}`}
