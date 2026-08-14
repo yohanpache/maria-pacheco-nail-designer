@@ -15,3 +15,10 @@
 - [x] Aplicar a paleta rosé clara inspirada na referência fornecida.
 - [x] Ajustar os elementos de marca para harmonizarem com a nova logo.
 - [x] Validar a nova identidade em desktop e celular.
+
+## Refinamento da logo
+
+- [x] Criar uma marca limpa com coração em traços, nome e subtítulo.
+- [x] Remover o cartão rosé e todos os fundos da imagem de logo aplicada.
+- [x] Substituir a marca no cabeçalho, hero e rodapé.
+- [x] Validar a nova composição em desktop e celular.

@@ -7,22 +7,8 @@ import { ChevronLeft, ChevronRight, Instagram, MapPin, Menu, MessageCircle, Musi
 
 /**
  * Estilo da página: minimalismo rosé sofisticado, fotografia como protagonista,
- * tipografia editorial e interações suaves que valorizam o portfólio de unhas.
+ * tipografia editorial e logo em traços, sem cartões ou molduras decorativas.
  */
-
-function BrandSeal({ className = "" }: { className?: string }) {
-  return (
-    <div
-      aria-hidden="true"
-      className={`select-none rounded-full border border-primary/35 p-1 ${className}`}
-    >
-      <div className="w-full h-full rounded-full border border-primary/20 flex flex-col items-center justify-center text-primary leading-none">
-        <span className="font-display text-2xl tracking-[-0.08em]">MP</span>
-        <span className="mt-1 text-[5px] tracking-[0.18em] uppercase">Nail Art</span>
-      </div>
-    </div>
-  );
-}
 
 /* ─────────────────────────────────────────────────────────────── */
 /*  Navbar                                                          */
@@ -60,7 +46,9 @@ function Navbar() {
           <img
             src={siteContent.logoImage}
             alt="Maria Pacheco Nail Designer"
-            className="h-11 w-32 rounded-md object-contain bg-[oklch(0.94_0.025_10)] p-1 transition-transform duration-300 group-hover:scale-[1.03]"
+            className={`h-14 w-36 object-contain opacity-95 transition-transform duration-300 group-hover:scale-[1.03] ${
+              scrolled ? "" : "brightness-0 invert drop-shadow-sm"
+            }`}
           />
         </a>
 
@@ -187,13 +175,11 @@ function Hero() {
         </div>
       </div>
 
-      <div className="hidden lg:block absolute z-10 right-[8%] bottom-14 w-56 rounded-[1.35rem] bg-[oklch(0.94_0.025_10)]/92 p-3 shadow-[0_18px_45px_rgba(72,37,48,0.18)]">
-        <img
-          src={siteContent.logoImage}
-          alt="Logo Maria Pacheco Nail Designer"
-          className="w-full h-auto rounded-lg"
-        />
-      </div>
+      <img
+        src={siteContent.logoImage}
+        alt="Logo Maria Pacheco Nail Designer"
+        className="hidden lg:block absolute z-10 right-[8%] bottom-14 w-60 h-auto brightness-0 invert opacity-90 drop-shadow-[0_8px_18px_rgba(37,20,25,0.35)]"
+      />
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
@@ -211,7 +197,6 @@ function About() {
 
   return (
     <section id="sobre" className="relative overflow-hidden py-24 md:py-36 bg-background">
-      <BrandSeal className="hidden md:flex absolute -right-8 top-14 h-32 w-32 opacity-45" />
       <div className="container relative">
         <div ref={ref} className={`grid md:grid-cols-12 gap-10 md:gap-16 ${visible ? "reveal visible" : "reveal"}`}>
           <div className="md:col-span-5 lg:col-span-4">
@@ -246,7 +231,6 @@ function Services() {
     <section id="servicos" className="relative overflow-hidden py-24 md:py-32 bg-secondary/40">
       <WaveDivider color="var(--background)" position="top" className="-mb-[1px]" />
       <div className="container relative">
-        <BrandSeal className="hidden md:flex absolute right-8 top-6 h-20 w-20 opacity-50" />
         <div ref={ref} className={`max-w-2xl mb-14 md:mb-16 ${visible ? "reveal visible" : "reveal"}`}>
           <p className="font-display italic text-primary text-lg mb-4">Serviços</p>
           <h2 className="font-display text-4xl md:text-5xl text-foreground leading-tight">
@@ -313,11 +297,10 @@ function Gallery() {
               Unhas em destaque
             </h2>
           </div>
-          <div className="md:col-span-4 md:col-start-9 flex items-end justify-between gap-6">
+          <div className="md:col-span-4 md:col-start-9 flex items-end gap-6">
             <p className="text-muted-foreground text-sm leading-relaxed max-w-xs">
               Uma apresentação dos trabalhos criados com atenção a cada detalhe.
             </p>
-            <BrandSeal className="flex shrink-0 h-20 w-20" />
           </div>
         </div>
 
@@ -468,7 +451,6 @@ function Contact() {
             </div>
 
             <div className="relative overflow-hidden bg-[oklch(0.27_0.05_10)] rounded-2xl p-8 md:p-10 flex flex-col justify-between min-h-[260px]">
-              <BrandSeal className="absolute -right-7 -top-7 h-28 w-28 opacity-40 [&_span]:text-[oklch(0.83_0.06_30)] [&>div]:border-[oklch(0.83_0.06_30)]/30" />
               <div>
                 <p className="font-display italic text-[oklch(0.83_0.06_30)] text-lg mb-3">Seu momento de cuidado</p>
                 <h3 className="font-display text-3xl text-white leading-tight mb-4">Pronta para transformar suas unhas?</h3>
@@ -502,11 +484,8 @@ function Footer() {
     <footer className="bg-[oklch(0.22_0.045_10)] text-white/70 py-12">
       <div className="container">
         <div className="flex flex-col items-center gap-6">
-          <img
-            src={siteContent.logoImage}
-            alt="Maria Pacheco Nail Designer"
-            className="w-48 h-auto rounded-md object-contain bg-[oklch(0.94_0.025_10)] p-2"
-          />
+          <p className="font-display text-2xl text-white/90">Maria Pacheco</p>
+          <p className="text-[10px] tracking-[0.22em] uppercase text-white/60">Nail Designer</p>
           <p className="text-sm tracking-[0.12em] uppercase text-white/70">{siteContent.city} · {siteContent.profession}</p>
           <div className="flex gap-6 mt-2">
             <a

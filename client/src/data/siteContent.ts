@@ -125,5 +125,5 @@ export const siteContent = {
 
   // ── Imagem do hero (banner principal) ─────────────────────────
   heroImage: "/manus-storage/hero-nail-designer_b899145c.jpg",
-  logoImage: "/manus-storage/maria-pacheco-logo-reference_d5e5bc15.jpeg",
+  logoImage: "/manus-storage/maria-pacheco-logo-final_5be67cf5.png",
 };
