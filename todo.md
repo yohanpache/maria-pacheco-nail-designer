@@ -34,3 +34,9 @@
 - [x] Aplicar coração, assinatura manuscrita e subtítulo no topo da página.
 - [x] Ajustar contraste e dimensão para leitura sobre a imagem principal.
 - [x] Validar a assinatura no topo em desktop e celular.
+
+## Destaque de marca no cabeçalho
+
+- [x] Posicionar a assinatura acima dos links de navegação.
+- [x] Ampliar a logo preservando legibilidade e equilíbrio visual.
+- [x] Validar o novo cabeçalho em desktop e celular.

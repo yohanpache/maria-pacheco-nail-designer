@@ -40,13 +40,13 @@ function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <nav className="container flex items-center justify-between py-3">
-        {/* Logo */}
-        <a href="#inicio" className="flex items-center gap-3 group">
+      <nav className="container relative flex flex-col items-center py-3 md:py-4">
+        {/* Assinatura de marca acima da navegação */}
+        <a href="#inicio" className="flex items-center justify-center group mb-2 md:mb-3">
           <img
             src={siteContent.logoImage}
             alt="Maria Pacheco Nail Designer"
-            className={`h-16 md:h-20 w-36 md:w-44 object-contain opacity-100 transition-transform duration-300 group-hover:scale-[1.03] ${
+            className={`h-20 md:h-24 w-40 md:w-52 object-contain opacity-100 transition-transform duration-300 group-hover:scale-[1.03] ${
               scrolled
                 ? "drop-shadow-[0_2px_5px_rgba(91,57,68,0.10)]"
                 : "brightness-0 invert drop-shadow-[0_3px_12px_rgba(37,20,25,0.45)]"
@@ -60,7 +60,11 @@ function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm tracking-wide text-foreground/70 hover:text-primary transition-colors duration-200 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:bg-primary after:transition-all after:duration-300 hover:after:w-full"
+              className={`text-sm tracking-wide transition-colors duration-200 relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[1px] after:transition-all after:duration-300 hover:after:w-full ${
+                scrolled
+                  ? "text-foreground/70 hover:text-primary after:bg-primary"
+                  : "text-white/85 hover:text-white after:bg-white"
+              }`}
             >
               {l.label}
             </a>
@@ -81,7 +85,9 @@ function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-foreground"
+          className={`absolute right-4 top-1/2 -translate-y-1/2 md:hidden ${
+            scrolled ? "text-foreground" : "text-white drop-shadow-sm"
+          }`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >
@@ -137,7 +143,7 @@ function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 pt-24">
+      <div className="container relative z-10 pt-40 md:pt-48">
         <div className="max-w-xl">
           <p
             className="font-display italic text-lg md:text-xl text-[oklch(0.90_0.03_40)] mb-4 reveal visible"
