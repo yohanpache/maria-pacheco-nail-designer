@@ -59,3 +59,8 @@
 - [x] Substituir o ícone de conversa pelo ícone do WhatsApp.
 - [x] Alterar o texto para “Agende seu horário”.
 - [x] Validar a caixa de WhatsApp atualizada.
+
+## Ícone do WhatsApp no rodapé
+
+- [x] Substituir o balão de conversa pelo símbolo do WhatsApp no rodapé.
+- [x] Validar o ícone atualizado no rodapé.
