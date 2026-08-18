@@ -205,8 +205,14 @@ function vitePluginStorageProxy(): Plugin {
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
 
-export default defineConfig({
+export default Config({
   plugins,
+  base: '/maria-pacheco-nail-designer/',
+  resolve: {
+    ...
+  },
+  ...
+})
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
