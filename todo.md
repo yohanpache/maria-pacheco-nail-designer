@@ -64,3 +64,8 @@
 
 - [x] Substituir o balão de conversa pelo símbolo do WhatsApp no rodapé.
 - [x] Validar o ícone atualizado no rodapé.
+
+## Ícone do TikTok no contato
+
+- [x] Substituir somente o ícone atual pelo símbolo do TikTok.
+- [x] Validar a caixa de TikTok atualizada.

@@ -429,7 +429,9 @@ function Contact() {
                 className="flex items-center gap-4 p-5 bg-card rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
               >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Music2 size={20} className="text-primary" />
+                  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className="w-5 h-5 text-primary">
+                    <path d="M12.53.02c1.3-.02 2.6-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.99-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.93-3.54 3.2-5.88 3.27-1.44.08-2.88-.31-4.12-1.04-2.06-1.21-3.5-3.43-3.71-5.82-.02-.51-.03-1.02-.01-1.53.18-1.94 1.17-3.79 2.71-5 1.75-1.42 4.18-2.11 6.41-1.69.02 1.48-.04 2.96-.04 4.44-1.03-.33-2.22-.24-3.13.32-.66.39-1.16 1.02-1.41 1.73-.21.51-.15 1.07-.14 1.61.24 1.66 1.82 3.05 3.5 2.94 1.12-.01 2.19-.66 2.77-1.62.19-.34.4-.69.41-1.09.1-1.79.06-3.58.07-5.37.01-4.02-.01-8.03.02-12.05Z" />
+                  </svg>
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground tracking-widest uppercase">TikTok</p>
