@@ -69,3 +69,9 @@
 
 - [x] Substituir somente o ícone atual pelo símbolo do TikTok.
 - [x] Validar a caixa de TikTok atualizada.
+
+## Link de localização
+
+- [x] Verificar o link do Google Maps fornecido.
+- [x] Vincular a caixa de endereço ao mapa.
+- [x] Validar a abertura do Google Maps pela seção de contato.

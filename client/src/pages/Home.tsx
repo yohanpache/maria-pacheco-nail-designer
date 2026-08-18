@@ -439,7 +439,13 @@ function Contact() {
                 </div>
               </a>
 
-              <div className="flex items-center gap-4 p-5 bg-card rounded-2xl border border-border/50">
+              <a
+                href={siteContent.contact.addressUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Abrir endereço de Maria Pacheco Nail Designer no Google Maps"
+                className="flex items-center gap-4 p-5 bg-card rounded-2xl border border-border/50 hover:border-primary/30 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.04)]"
+              >
                 <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <MapPin size={20} className="text-primary" />
                 </div>
@@ -447,7 +453,7 @@ function Contact() {
                   <p className="text-xs text-muted-foreground tracking-widest uppercase">Endereço</p>
                   <p className="text-foreground font-medium">{siteContent.contact.address}</p>
                 </div>
-              </div>
+              </a>
           </div>
         </div>
       </div>
