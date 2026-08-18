@@ -208,10 +208,11 @@ const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(
 export default Config({
   plugins,
   base: '/maria-pacheco-nail-designer/',
-  resolve: {
-    ...
-  },
-  ...
+  resolve: { ... },
+  envDir: ...,
+  root: ...,
+  build: { ... },
+  server: { ... }
 })
   resolve: {
     alias: {
