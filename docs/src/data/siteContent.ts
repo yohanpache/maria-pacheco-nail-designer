@@ -41,7 +41,7 @@ export const siteContent = {
     tiktok: "@maria_pacheco_nail",
     tiktokUrl: "https://www.tiktok.com/@maria_pacheco_nail",
     address: "Vila Bela, Guarapuava — Paraná",
-    addressUrl: "https://share.google/QLimcvFFi7xUWVVQg",
+    addressUrl: "https://maps.app.goo.gl/3Evn5JBogT2tSBwQ9",
   },
 
   // ── Serviços oferecidos ────────────────────────────────────────
