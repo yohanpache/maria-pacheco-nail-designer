@@ -203,17 +203,18 @@ function vitePluginStorageProxy(): Plugin {
   };
 }
 
-const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime(), vitePluginManusDebugCollector(), vitePluginStorageProxy()];
+const plugins = [
+  react(),
+  tailwindcss(),
+  jsxLocPlugin(),
+  vitePluginManusRuntime(),
+  vitePluginManusDebugCollector(),
+  vitePluginStorageProxy(),
+];
 
-export default Config({
+export default defineConfig({
   plugins,
-  base: '/maria-pacheco-nail-designer/',
-  resolve: { ... },
-  envDir: ...,
-  root: ...,
-  build: { ... },
-  server: { ... }
-})
+  base: "/maria-pacheco-nail-designer/",
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
@@ -229,7 +230,7 @@ export default Config({
   },
   server: {
     port: 3000,
-    strictPort: false, // Will find next available port if 3000 is busy
+    strictPort: false,
     host: true,
     allowedHosts: [
       ".manuspre.computer",
